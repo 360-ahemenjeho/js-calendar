@@ -81,11 +81,7 @@ export default function Calendar() {
     <Box
       sx={{
         fontFamily: `Inter, sans-serif`,
-        backgroundColor: "#ffffff",
-        borderRadius: "13px",
         overflow: "hidden",
-        border: "1px solid rgba(0,0,0,0.09)",
-        boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.06)",
       }}
     >
       {/* ── Header ── */}
@@ -96,7 +92,6 @@ export default function Calendar() {
           justifyContent: "space-between",
           px: { xs: 2, sm: "20px" },
           py: { xs: "12px", sm: "14px" },
-          borderBottom: "1px solid rgba(0,0,0,0.07)",
         }}
       >
         {/* Month + Year */}
@@ -127,6 +122,7 @@ export default function Calendar() {
 
         {/* Controls */}
         <Box sx={{ display: "flex", alignItems: "center", gap: "4px" }}>
+          <NavButton onClick={goToPrev}>‹</NavButton>
           <Box
             component="button"
             onClick={goToToday}
@@ -136,22 +132,21 @@ export default function Calendar() {
               fontWeight: 500,
               color: "#007aff",
               background: "none",
-              border: "1px solid rgba(0,122,255,0.35)",
-              borderRadius: "7px",
+              backgroundColor: "rgba(0,0,0,0.06)",
+              borderRadius: "999px",
               px: "11px",
-              py: "5px",
+              height: "30px",
               cursor: "pointer",
-              mr: "4px",
-              transition: "all 0.15s",
+              transition: "background-color 0.15s",
+              outline: "none",
+              border: "none",
               "&:hover": {
                 backgroundColor: "rgba(0,122,255,0.06)",
-                borderColor: "rgba(0,122,255,0.6)",
               },
             }}
           >
             Today
           </Box>
-          <NavButton onClick={goToPrev}>‹</NavButton>
           <NavButton onClick={goToNext}>›</NavButton>
         </Box>
       </Box>
@@ -174,7 +169,7 @@ export default function Calendar() {
             },
 
             // Thin vertical dividers between columns
-            "& td + td, & th + th": {
+            "& td + td": {
               borderLeft: "1px solid rgba(0,0,0,0.05)",
             },
 
@@ -232,7 +227,7 @@ export default function Calendar() {
                             height: { xs: "72px", sm: "104px" },
                             backgroundColor: isWeekend
                               ? "rgba(0,0,0,0.012)"
-                              : "#fff",
+                              : "transparent",
                             transition: "background 0.1s",
                             cursor: day ? "pointer" : "default",
                             "&:hover": day
