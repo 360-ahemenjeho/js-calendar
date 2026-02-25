@@ -90,7 +90,6 @@ export default function Calendar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          px: { xs: 2, sm: "20px" },
           py: { xs: "12px", sm: "14px" },
         }}
       >
